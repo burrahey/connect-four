@@ -14,24 +14,28 @@ export class staticIntro extends Component {
   }
 
   handleOnChange =(e) => {
+    let newState = {...this.state}
+    newState[e.target.name] = e.target.value
+    this.setState(newState)
   }
 
   handleOnSubmit =(event) => {
     event.preventDefault();
+    debugger;
   }
 
   render() {
     return (
       <div>
-      <h1>Welcome to Connect Four.</h1>
-      <p>Enter player names to get started.</p>
-      <form>
-      <label>Player 1 Name</label>
-      <input name="player1" type="text" /><br />
-      <label>Player 2 Name</label>
-      <input name="player2" type="text" /><br />
-      <input type="submit" />
-      </form>
+        <h1>Welcome to Connect Four.</h1>
+        <p>Enter player names to get started.</p>
+        <form onSubmit={this.handleOnSubmit}>
+          <label>Player 1 Name</label>
+          <input name="player1" type="text" onChange={this.handleOnChange} value={this.props.player1}/><br />
+          <label>Player 2 Name</label>
+          <input name="player2" type="text" onChange={this.handleOnChange} value={this.props.player2}/><br />
+          <input type="submit" />
+        </form>
       </div>
     );
   }

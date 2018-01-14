@@ -1,4 +1,4 @@
-const introReducer = function(state={player1: [], player2: []}, action){
+const introReducer = function(state={player1: "", player2: ""}, action){
   switch(action.type){
     case 'ADD_PLAYERS':
       debugger;
