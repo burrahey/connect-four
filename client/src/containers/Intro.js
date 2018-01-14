@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import {addPlayers} from '../actions/gameActions'
 import IntroFrom from '../components/introForm'
 
-export class staticIntro extends Component {
+class staticIntro extends Component {
 
   constructor(){
     super();

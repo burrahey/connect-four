@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export class Game extends Component {
+class staticGame extends Component {
+
+  constructor(){
+    super();
+
+    this.state={
+      player1:"", player2:"", gameState:[]
+    }
+  }
 
   render() {
     return (
-      <div>
-      Game here
+      <div className="App">
+        Game
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  debugger;
+  return {...state.game};
+}
+
+export const Game = connect(mapStateToProps)(staticGame);

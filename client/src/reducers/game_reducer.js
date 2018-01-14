@@ -1,12 +1,20 @@
-const gameReducer = function(state={player1: '', player2: '', game: {}}, action){
+const gameReducer = function(state={player1: "Archana", player2: "Billu", gameState: defaultGame}, action){
   switch(action.type){
     case 'ADD_PLAYERS':
       return Object.assign({}, state, action.players);
-    case 'BEGIN_GAME':
-      return state;
     default:
       return state;
   }
 }
 
 export default gameReducer;
+
+const defaultGame = [
+  [" "," "," "," "," "," "," "],
+  [" "," "," "," "," "," "," "],
+  [" "," "," "," "," "," "," "],
+  [" "," "," "," "," "," "," "],
+  [" "," "," "," "," "," "," "],
+  [" "," "," "," "," "," "," "],
+  [" "," "," "," "," "," "," "],
+]

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { Switch, NavLink, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import { Game } from './containers/Game';
 import { Intro } from './containers/Intro';
 import { Scoreboard } from './containers/Scoreboard';
@@ -18,7 +15,7 @@ class App extends Component {
         <div>
         <header className="App-header">
           <h1 className="App-title">Connect Four</h1>
-          <NavBar />
+          <div><NavBar /></div>
         </header>
             <Route exact path="/" component={Intro} />
             <Route exact path="/game" component={Game} />
