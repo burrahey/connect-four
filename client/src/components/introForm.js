@@ -1,7 +1,6 @@
 import React from 'react';
 
 const IntroForm = (props) => {
-  console.log(props)
   return (
     <div>
       <p>Enter player names to get started.</p>
