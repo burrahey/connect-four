@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Players from '../components/Players'
-import Gameboard from '../components/Gameboard'
+import {Gameboard} from '../components/Gameboard'
 
 class staticGame extends Component {
 
