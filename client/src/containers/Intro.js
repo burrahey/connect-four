@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import addPlayers from '../actions/introActions'
 
 export class staticIntro extends Component {
 
@@ -37,7 +38,15 @@ export class staticIntro extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {player1: state.player1, player2: state.player1};
+  return { player1: state.player1, player2: state.player1 };
 }
 
-export const Intro = connect(mapStateToProps)(staticIntro);
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    addPlayers: addPlayers
+  }, dispatch);
+};
+
+
+export const Intro = connect(mapStateToProps, mapDispatchToProps)(staticIntro);
