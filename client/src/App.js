@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import {Game} from './containers/Game';
 import {Intro} from './containers/Intro';
 import {Scoreboard} from './containers/Scoreboard';
@@ -15,13 +15,16 @@ class App extends Component {
       <header className="App-header">
         <h1 className="App-title">Connect Four</h1>
       </header>
-        <Router>
+      <Router>
+        <Switch>
           <div>
-            <Route path="/" component={Intro} />
-            <Route path="/game" component={Game} />
-            <Route path="/scoreboard" component={Scoreboard} />
+            <Route exact path="/" component={Intro} />
+            <Route exact path="/game" component={Game} />
+            <Route exact path="/scoreboard" component={Scoreboard} />
           </div>
+        </Switch>
         </Router>
+
       </div>
     );
   }
