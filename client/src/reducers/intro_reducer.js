@@ -8,4 +8,4 @@ const introReducer = function(state={player1: [], player2: []}, action){
   }
 }
 
-export default catsReducer;
+export default introReducer;
