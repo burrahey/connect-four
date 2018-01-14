@@ -16,7 +16,7 @@ class staticGame extends Component {
   }
 
   handleOnClick = (event) => {
-    this.props.updateBoard(event.target.id, this.state.turn)
+    this.props.updateBoard(event.target.id, this.props.turn)
   }
 
   render() {

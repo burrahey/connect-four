@@ -18,15 +18,14 @@ const gameReducer = function(state={player1: "Archana", player2: "Billu", gameSt
 
       for(let i = 6; i > -1; i--){
         if(newGameState[i][action.column] === 0){
-          newGameState[i][action.column] = action.player
+          newGameState[i][action.column] = action.player;
+          if(state.turn === 1){
+            newTurn = 2;
+          } else {
+            newTurn = 1;
+          }
           break;
         }
-      }
-
-      if(state.turn === 1){
-        newTurn = 2;
-      } else {
-        newTurn = 1;
       }
 
       return Object.assign({},state, {gameState: newGameState}, {turn: newTurn})
