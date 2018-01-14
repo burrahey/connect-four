@@ -2,7 +2,7 @@ import React from 'react';
 
 const Cell = (props) => {
   return (
-    <td>
+    <td id={props.row.toString() + props.column.toString()}>
       {props.value}
     </td>
   )
