@@ -2,7 +2,7 @@ import React from 'react';
 
 const Cell = (props) => {
   return (
-    <td id={props.row.toString() + props.column.toString()}>
+    <td onClick={(e) => {props.handleOnClick(e)}} id={props.column.toString()}>
       {props.value}
     </td>
   )
