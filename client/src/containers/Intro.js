@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import addPlayers from '../actions/introActions'
+import IntroFrom from '../components/introForm'
 
 export class staticIntro extends Component {
 
@@ -13,9 +14,9 @@ export class staticIntro extends Component {
     }
   }
 
-  handleOnChange =(e) => {
+  handleOnChange =(event) => {
     let newState = {...this.state}
-    newState[e.target.name] = e.target.value
+    newState[event.target.name] = event.target.value
     this.setState(newState)
   }
 
@@ -30,14 +31,7 @@ export class staticIntro extends Component {
     return (
       <div>
         <h1>Welcome to Connect Four.</h1>
-        <p>Enter player names to get started.</p>
-        <form onSubmit={this.handleOnSubmit}>
-          <label>Player 1 Name</label>
-          <input name="player1" type="text" onChange={this.handleOnChange} value={this.props.player1}/><br />
-          <label>Player 2 Name</label>
-          <input name="player2" type="text" onChange={this.handleOnChange} value={this.props.player2}/><br />
-          <input type="submit" />
-        </form>
+        <IntroFrom handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit} player1={this.state.player1} player2={this.state.player2} />
       </div>
     );
   }
