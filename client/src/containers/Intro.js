@@ -7,7 +7,7 @@ import IntroFrom from '../components/introForm'
 export class staticIntro extends Component {
 
   constructor(){
-    super()
+    super();
 
     this.state={
       player1:"", player2:""
@@ -37,10 +37,6 @@ export class staticIntro extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { player1: state.player1, player2: state.player1 };
-}
-
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
@@ -49,4 +45,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export const Intro = connect(mapStateToProps, mapDispatchToProps)(staticIntro);
+export const Intro = connect(null, mapDispatchToProps)(staticIntro);
