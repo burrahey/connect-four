@@ -12,7 +12,7 @@ const Gameboard = (props) => {
     </tr>
   )})
   return (
-    <table border="1">
+    <table>
       {renderedGame}
     </table>
   )

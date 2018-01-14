@@ -26,3 +26,19 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+table, td {
+   border: 1px solid black;
+}
+
+table {
+    width: 50%;
+    position:relative;
+    top:30%;
+    left:30%;
+    right:10%
+}
+
+td {
+    height: 40px;
+}
