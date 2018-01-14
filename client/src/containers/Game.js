@@ -4,7 +4,7 @@ export class Game extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
       Game here
       </div>
     );

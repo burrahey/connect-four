@@ -4,7 +4,7 @@ export class Intro extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
       Intro
       </div>
     );

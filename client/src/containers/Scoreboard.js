@@ -4,7 +4,7 @@ export class Scoreboard extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
       Scoreboard
       </div>
     );
