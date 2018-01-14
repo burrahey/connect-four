@@ -21,7 +21,9 @@ export class staticIntro extends Component {
 
   handleOnSubmit =(event) => {
     event.preventDefault();
-    debugger;
+    const { addPlayers, history } = this.props;
+    addPlayers(this.state)
+    history.push('/game')
   }
 
   render() {
