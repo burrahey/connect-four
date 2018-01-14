@@ -28,6 +28,8 @@ const gameReducer = function(state={player1: "Archana", player2: "Billu", gameSt
         }
       }
 
+
+
       return Object.assign({},state, {gameState: newGameState}, {turn: newTurn})
     default:
       return state;
