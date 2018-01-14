@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {addPlayers} from '../actions/gameActions'
-import IntroFrom from '../components/introForm'
+import IntroFrom from '../components/IntroForm'
 
 class staticIntro extends Component {
 

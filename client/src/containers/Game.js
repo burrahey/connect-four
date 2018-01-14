@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Players from '../components/Players'
+import Gameboard from '../components/Gameboard'
 
 class staticGame extends Component {
 
@@ -14,15 +16,15 @@ class staticGame extends Component {
 
   render() {
     return (
-      <div className="App">
-        Game
+      <div>
+        <Players player1={this.props.player1} player2={this.props.player2} />
+        <Gameboard gameState={this.props.gameState}/>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  debugger;
   return {...state.game};
 }
 
