@@ -1,4 +1,4 @@
-const gameReducer = function(state={game: {}}, action){
+const gameReducer = function(state={player1: '', player2: '', game: {}}, action){
   switch(action.type){
     case 'ADD_PLAYERS':
       return Object.assign({}, state, action.players);
