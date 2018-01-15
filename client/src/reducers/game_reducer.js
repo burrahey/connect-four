@@ -11,19 +11,23 @@ const maxRowLength = 7;
 
 const checkWinner = function(gameState, row, column, player){
   let winSum = player * 4
+
+  //check horizontals
   for(let i = 0; i < 4; i++){
-    // checking horizontals
     if(gameState[row][column + i - 3] + gameState[row][column + i - 2] + gameState[row][column + i - 1] + gameState[row][column + i - 0] === winSum){
       console.log("win horizontal row: " + row)
       return true
-    } else if(row < 3){
-      // checking vertical wins
-      if(gameState[row][column] + gameState[row+1][column] + gameState[row+2][column] + gameState[row+3][column] === winSum){
-        console.log("win vertical: " + column)
-        return true
-      }
     }
   }
+
+  // checking vertical wins
+  if(row < 3){
+   if(gameState[row][column] + gameState[row+1][column] + gameState[row+2][column] + gameState[row+3][column] === winSum){
+     console.log("win vertical: " + column)
+     return true
+   }
+ }
+
   return false;
 }
 
