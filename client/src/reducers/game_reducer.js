@@ -10,13 +10,30 @@ const defaultGame = [
 const maxRowLength = 7;
 
 const checkWinner = function(gameState, row, column, player){
-  let winSum = player * 4
+  let winSum = player * 4;
+  let maxLength = 6;
 
-  //check horizontals
+  //checking horizontals
   for(let i = 0; i < 4; i++){
     if(gameState[row][column + i - 3] + gameState[row][column + i - 2] + gameState[row][column + i - 1] + gameState[row][column + i - 0] === winSum){
       console.log("win horizontal row: " + row)
-      return true
+      return true;
+    }
+  }
+
+  //checking diagonals
+  for(let i = 0; i < 4; i++){
+    if((row - i >= 0 )&& (row - i + 3 < maxLength)){
+      //left to right
+      if(gameState[row - i][column] + gameState[row - i + 1][column + 1] + gameState[row - i + 2][column + 2] + gameState[row - i + 3][column + 3] === winSum){
+        console.log("diagonal win left to right" + row)
+        return true;
+      } else if(gameState[row - i][column] + gameState[row - i + 1][column - 1] + gameState[row - i + 2][column - 2] + gameState[row - i + 3][column - 3] === winSum){
+        //right to left
+        console.log("diagonal win right to left" + row)
+        return true;
+
+      }
     }
   }
 
