@@ -4,7 +4,6 @@ const Players = (props) => {
   let phrase = "";
 
   if(props.winner){
-    debugger
     if(props.winner === 1){
       phrase = `${props.player1} WON!!!!!!!`
     } else if(props.winner === 2){

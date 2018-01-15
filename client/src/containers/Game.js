@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Players from '../components/Players'
 import {Gameboard} from '../components/Gameboard';
-import {updateBoard} from '../actions/gameActions'
+import { updateBoard, saveGame } from '../actions/gameActions'
 
 class staticGame extends Component {
 
@@ -18,6 +18,13 @@ class staticGame extends Component {
   handleOnClick = (event) => {
     if(!this.props.winner){
       this.props.updateBoard(event.target.id, this.props.turn)
+    }
+  }
+
+  componentDidUpdate(){
+    debugger;
+    if(this.props.winner){
+      this.props.saveGame(this.props.winner);
     }
   }
 
@@ -37,7 +44,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    updateBoard: updateBoard
+    updateBoard: updateBoard,
+    saveGame: saveGame
   }, dispatch);
 };
 

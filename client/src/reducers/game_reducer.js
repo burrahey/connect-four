@@ -91,6 +91,9 @@ const gameReducer = function(state={player1: "Archana", player2: "Billu", gameSt
       }
 
       return Object.assign({},state, {gameState: newGameState}, {turn: newTurn}, {winner: newWinner})
+    case 'SAVE_GAME':
+      debugger;
+      return state;
     default:
       return state;
   }

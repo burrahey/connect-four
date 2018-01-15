@@ -7,3 +7,7 @@ export const addPlayers = (players) => {
 export const updateBoard = (column, player) => {
   return {type: "UPDATE_BOARD", column: column, player: player}
 }
+
+export const saveGame = (winner) => {
+  return {type: "SAVE_GAME", winner: winner}
+}
