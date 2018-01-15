@@ -9,5 +9,20 @@ export const updateBoard = (column, player) => {
 }
 
 export const saveGame = (gameOver, gameState) => {
+  debugger;
+  fetch('/api/games', {
+  method: "post",
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'X-Requested-With': 'XMLHttpRequest'
+  },
+  body: JSON.stringify({ winner: gameOver, state: gameState })
+  })
+  .then( (response) => {
+  console.log(response)
+  debugger;
+});
+
   return {type: "SAVE_GAME"}
 }
