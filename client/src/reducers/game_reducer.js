@@ -15,7 +15,7 @@ const checkWinner = function(gameState, row, column, player){
 
   //checking horizontals
   for(let i = 0; i < 4; i++){
-    if(gameState[row][column + i - 3] + gameState[row][column + i - 2] + gameState[row][column + i - 1] + gameState[row][column + i - 0] === winSum){
+    if(gameState[row][column + i - 3] === gameState[row][column + i - 2] && gameState[row][column + i - 2] === gameState[row][column + i - 1] && gameState[row][column + i - 1] === gameState[row][column + i - 0]){
       console.log("win horizontal row: " + row)
       return true;
     }
