@@ -9,7 +9,7 @@ export const updateBoard = (column, player) => {
 }
 
 export const saveGame = (winner, gameState, player1, player2) => {
-
+  debugger;
   if(winner === 1){
     winner = player1;
   } else if(winner === 2){

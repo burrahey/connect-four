@@ -24,7 +24,7 @@ class staticGame extends Component {
   componentDidUpdate(){
     if(this.props.gameOver){
       let winner = "";
-      this.props.saveGame(winner, this.props.gameState, this.props.player1, this.props.player2);
+      this.props.saveGame(this.props.gameOver, this.props.gameState, this.props.player1, this.props.player2);
     }
   }
 
