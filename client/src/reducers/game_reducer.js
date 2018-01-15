@@ -29,7 +29,15 @@ const gameReducer = function(state={player1: "Player 1", player2: "Player 2", ga
 
       return {player1: action.game.player1, player2: action.game.player2, gameState: action.game.state, gameOver: winner, saved: action.game.id};
     case 'RESET_GAME':
-      return {player1: "Player 1", player2: "Player 2", gameState: defaultGame, turn: 1, gameOver: false, saved: false}
+      let newGame = [
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0]
+      ];
+      return {player1: "Player 1", player2: "Player 2", gameState: newGame, turn: 1, gameOver: false, saved: false}
     default:
       return state;
   }

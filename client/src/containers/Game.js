@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Players from '../components/Players'
 import {Gameboard} from '../components/Gameboard';
-import { updateBoard, saveGame, pullGame } from '../actions/gameActions'
+import { updateBoard, saveGame, pullGame, resetGame } from '../actions/gameActions'
 
 class staticGame extends Component {
 
@@ -28,7 +28,6 @@ class staticGame extends Component {
   }
 
   render() {
-    debugger;
     return (
       <div>
         <Players turn={this.props.turn} player1={this.props.player1} player2={this.props.player2} gameOver={this.props.gameOver} />
@@ -46,7 +45,8 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     updateBoard: updateBoard,
     saveGame: saveGame,
-    pullGame: pullGame
+    pullGame: pullGame,
+    resetGame: resetGame
   }, dispatch);
 };
 

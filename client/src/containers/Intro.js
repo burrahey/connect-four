@@ -14,7 +14,7 @@ class staticIntro extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.resetGame();
   }
 
