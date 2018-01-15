@@ -7,6 +7,8 @@ import {createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers/index';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
+import Moment from 'moment'
+
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 

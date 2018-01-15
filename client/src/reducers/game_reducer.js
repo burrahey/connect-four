@@ -26,7 +26,7 @@ const gameReducer = function(state={player1: "Player 1", player2: "Player 2", ga
       } else if(action.game.winner === action.game.player2){
         winner = 2;
       }
-
+      debugger;
       return {player1: action.game.player1, player2: action.game.player2, gameState: action.game.state, gameOver: winner, saved: action.game.id};
     default:
       return state;
