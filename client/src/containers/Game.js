@@ -22,7 +22,7 @@ class staticGame extends Component {
   render() {
     return (
       <div>
-        <Players turn={this.props.turn} player1={this.props.player1} player2={this.props.player2} />
+        <Players turn={this.props.turn} player1={this.props.player1} player2={this.props.player2} winner={this.props.winner} />
         <Gameboard gameState={this.props.gameState} handleOnClick={this.handleOnClick}/>
       </div>
     );

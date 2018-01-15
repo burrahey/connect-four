@@ -74,21 +74,23 @@ const gameReducer = function(state={player1: "Archana", player2: "Billu", gameSt
       let newGameState = [...state.gameState];
       let column = +action.column;
       let newTurn = state.turn
+      let newWinner = false;
 
       for(let row = 5; row >= 0; row--){
         if(newGameState[row][column] === undefined){
           newGameState[row][column] = action.player;
-          if(checkWinner(newGameState, row, column, action.player) || checkTie(newGameState)){
-            debugger;
+          if(checkWinner(newGameState, row, column, action.player)){
+            newWinner = action.player;
+          } else if(checkTie(newGameState)){
+            newWinner = "Tie Game";
           } else {
             newTurn = updateTurn(state.turn)
           }
-
           break;
         }
       }
 
-      return Object.assign({},state, {gameState: newGameState}, {turn: newTurn})
+      return Object.assign({},state, {gameState: newGameState}, {turn: newTurn}, {winner: newWinner})
     default:
       return state;
   }
