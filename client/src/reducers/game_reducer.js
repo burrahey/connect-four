@@ -1,10 +1,10 @@
 const defaultGame = [
-  [-1,-1,-1,-1,-1,-1,-1],
-  [-1,-1,-1,-1,-1,-1,-1],
-  [-1,-1,-1,-1,-1,-1,-1],
-  [-1,-1,-1,-1,-1,-1,-1],
-  [-1,-1,-1,-1,-1,-1,-1],
-  [-1,-1,-1,-1,-1,-1,-1]
+  [undefined,undefined,undefined,undefined,undefined,undefined,undefined],
+  [undefined,undefined,undefined,undefined,undefined,undefined,undefined],
+  [undefined,undefined,undefined,undefined,undefined,undefined,undefined],
+  [undefined,undefined,undefined,undefined,undefined,undefined,undefined],
+  [undefined,undefined,undefined,undefined,undefined,undefined,undefined],
+  [undefined,undefined,undefined,undefined,undefined,undefined,undefined]
 ];
 
 const maxRowLength = 7;
@@ -14,7 +14,7 @@ const checkWinner = function(gameState, row, column, player){
   for(let i = 0; i < 4; i++){
     // checking horizontals
     if(gameState[row][column + i - 3] + gameState[row][column + i - 2] + gameState[row][column + i - 1] + gameState[row][column + i - 0] === winSum){
-      console.log("win horizontal row: " + row + "column" + column + i - 3)
+      console.log("win horizontal row: " + row)
       return true
     } else if(row < 3){
       // checking vertical wins
@@ -54,8 +54,8 @@ const gameReducer = function(state={player1: "Archana", player2: "Billu", gameSt
       let column = +action.column;
       let newTurn = state.turn
 
-      for(let row = 5; row > -1; row--){
-        if(newGameState[row][column] === -1){
+      for(let row = 5; row >= 0; row--){
+        if(newGameState[row][column] === undefined){
           newGameState[row][column] = action.player;
           if(checkWinner(newGameState, row, column, action.player) || checkTie(newGameState)){
             debugger;
