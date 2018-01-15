@@ -43,8 +43,7 @@ table {
 
 td {
     height: 40px;
-    background-color: #f0edb0;
-
+    background-color: #6699cc;
 }
 
 #scores {
@@ -55,7 +54,7 @@ td {
   border-radius: 100%;
   height: 35px;
   width: 35px;
-  align: center;
+  background: white;
 }
 
 .circle-1 {
@@ -63,7 +62,8 @@ td {
   border-radius: 100%;
   height: 35px;
   width: 35px;
-  align: center;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .circle-2 {
@@ -71,5 +71,6 @@ td {
   border-radius: 100%;
   height: 35px;
   width: 35px;
-  align: center;
+  margin-left:auto;
+  margin-right:auto;
 }
