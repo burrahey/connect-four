@@ -66,31 +66,35 @@ const updateTurn = function(turn){
   }
 }
 
+const updateTurnAndCheckBoard = function(state, action){
+  let newGameState = [...state.gameState];
+  let column = +action.column;
+  let newTurn = state.turn
+  let newWinner = false;
+
+  for(let row = 5; row >= 0; row--){
+    if(newGameState[row][column] === undefined){
+      newGameState[row][column] = action.player;
+      if(checkWinner(newGameState, row, column, action.player)){
+        newWinner = action.player;
+      } else if(checkTie(newGameState)){
+        newWinner = "Tie Game";
+      } else {
+        newTurn = updateTurn(state.turn)
+      }
+      break;
+    }
+  }
+
+  return Object.assign({},state, {gameState: newGameState}, {turn: newTurn}, {winner: newWinner})
+}
+
 const gameReducer = function(state={player1: "Archana", player2: "Billu", gameState: defaultGame, turn: 1, winner: false}, action){
   switch(action.type){
     case 'ADD_PLAYERS':
       return Object.assign({}, state, action.players);
     case 'UPDATE_BOARD':
-      let newGameState = [...state.gameState];
-      let column = +action.column;
-      let newTurn = state.turn
-      let newWinner = false;
-
-      for(let row = 5; row >= 0; row--){
-        if(newGameState[row][column] === undefined){
-          newGameState[row][column] = action.player;
-          if(checkWinner(newGameState, row, column, action.player)){
-            newWinner = action.player;
-          } else if(checkTie(newGameState)){
-            newWinner = "Tie Game";
-          } else {
-            newTurn = updateTurn(state.turn)
-          }
-          break;
-        }
-      }
-
-      return Object.assign({},state, {gameState: newGameState}, {turn: newTurn}, {winner: newWinner})
+      return updateTurnAndCheckBoard(state, action);
     case 'SAVE_GAME':
       return state;
     default:
