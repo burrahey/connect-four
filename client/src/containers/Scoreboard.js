@@ -10,6 +10,10 @@ class staticScoreboard extends Component {
     this.props.pullScores();
   }
 
+  handleOnClick = (e) => {
+
+  }
+
   render() {
     return (
       <div>

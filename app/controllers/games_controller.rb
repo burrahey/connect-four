@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create(winner: params[:winner])
+    @game = Game.create(winner: params[:winner], player1: params[:player1], player2: params[:player2])
     @rowState = RowState.create(state: params[:state], game_id: @game.id)
 
     if @game.save

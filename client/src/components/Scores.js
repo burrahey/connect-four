@@ -4,7 +4,7 @@ const Scores = (props) => {
 
   let renderedScores = "";
   if(props.scores.length > 0){
-    renderedScores = props.scores.map((score, index) => {return <li key={score.id}> Winner: {score.winner} </li>})
+    renderedScores = props.scores.map((score) => {return <li id={score.id} key={score.id}> Game played by {score.player1} and {score.player2} with winner: {score.winner} </li>})
   } else {
     renderedScores = "No Scores Yet"
   }
