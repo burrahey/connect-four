@@ -13,7 +13,9 @@ export class Gameboard extends Component {
     )});
     return(
       <table>
+        <tbody>
         {renderedGame}
+        </tbody>
       </table>
     )
   }

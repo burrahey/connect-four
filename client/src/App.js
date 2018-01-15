@@ -13,13 +13,13 @@ class App extends Component {
       <Router>
         <Switch>
         <div>
-        <header className="App-header">
-          <h1 className="App-title">Connect Four</h1>
-          <div><NavBar /></div>
-        </header>
-            <Route exact path="/" component={Intro} />
-            <Route exact path="/game" component={Game} />
-            <Route exact path="/scoreboard" component={Scoreboard} />
+          <header className="App-header">
+            <h1 className="App-title">Connect Four</h1>
+            <NavBar />
+          </header>
+          <Route exact path="/" component={Intro} />
+          <Route exact path="/game" component={Game} />
+          <Route exact path="/scoreboard" component={Scoreboard} />
           </div>
         </Switch>
         </Router>

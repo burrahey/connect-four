@@ -1,24 +1,26 @@
 const defaultGame = [
-  [0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0],
+  [-1,-1,-1,-1,-1,-1,-1],
+  [-1,-1,-1,-1,-1,-1,-1],
+  [-1,-1,-1,-1,-1,-1,-1],
+  [-1,-1,-1,-1,-1,-1,-1],
+  [-1,-1,-1,-1,-1,-1,-1],
+  [-1,-1,-1,-1,-1,-1,-1]
 ];
 
-const gameReducer = function(state={player1: "Archana", player2: "Billu", gameState: defaultGame, turn: 1}, action){
+const maxRowLength = 7;
+
+const gameReducer = function(state={player1: "Archana", player2: "Billu", gameState: defaultGame, turn: 1, winner: false}, action){
   switch(action.type){
     case 'ADD_PLAYERS':
       return Object.assign({}, state, action.players);
     case 'UPDATE_BOARD':
       let newGameState = [...state.gameState];
       let newTurn;
+      let column = action.column;
 
-      for(let i = 6; i > -1; i--){
-        if(newGameState[i][action.column] === 0){
-          newGameState[i][action.column] = action.player;
+      for(let row = 5; row > -1; row--){
+        if(newGameState[row][column] === -1){
+          newGameState[row][column] = action.player;
           if(state.turn === 1){
             newTurn = 2;
           } else {
@@ -27,8 +29,6 @@ const gameReducer = function(state={player1: "Archana", player2: "Billu", gameSt
           break;
         }
       }
-
-
 
       return Object.assign({},state, {gameState: newGameState}, {turn: newTurn})
     default:
