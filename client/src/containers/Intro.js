@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {addPlayers} from '../actions/gameActions';
+import {addPlayers, resetGame} from '../actions/gameActions';
 import IntroForm from '../components/IntroForm';
 
 class staticIntro extends Component {
@@ -12,6 +12,10 @@ class staticIntro extends Component {
     this.state={
       player1:"", player2:""
     }
+  }
+
+  componentWillMount() {
+    this.props.resetGame();
   }
 
   handleOnChange =(event) => {
@@ -40,7 +44,8 @@ class staticIntro extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    addPlayers: addPlayers
+    addPlayers: addPlayers,
+    resetGame: resetGame
   }, dispatch);
 };
 

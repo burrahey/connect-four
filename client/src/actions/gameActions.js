@@ -36,3 +36,7 @@ export const pullGame = (id) => {
       .then(game => dispatch({ type: 'LOAD_EXISTING_GAME', game: game }));
   };
 }
+
+export const resetGame = () => {
+  return {type: "RESET_GAME"};
+}
