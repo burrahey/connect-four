@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {addPlayers} from '../actions/gameActions'
-import IntroFrom from '../components/IntroForm'
+import {addPlayers} from '../actions/gameActions';
+import IntroForm from '../components/IntroForm';
 
 class staticIntro extends Component {
 
@@ -31,7 +31,7 @@ class staticIntro extends Component {
     return (
       <div>
         <h1>Welcome to Connect Four.</h1>
-        <IntroFrom handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit} player1={this.state.player1} player2={this.state.player2} />
+        <IntroForm handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit} player1={this.state.player1} player2={this.state.player2} />
       </div>
     );
   }
