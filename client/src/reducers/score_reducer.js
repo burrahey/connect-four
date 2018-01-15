@@ -4,6 +4,10 @@ const scoreReducer = function(state={scores:[]}, action){
   switch(action.type){
     case 'PULL_SCORES':
       return {scores: action.scores}
+    case 'LOAD_EXISTING_GAME':
+      //need to update state to old game using action.game
+      debugger;
+      return state;
     default:
       return state;
   }

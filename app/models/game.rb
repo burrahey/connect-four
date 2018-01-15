@@ -1,3 +1,4 @@
 class Game < ApplicationRecord
-  has_many :row_states
+  serialize :state, Array
+
 end

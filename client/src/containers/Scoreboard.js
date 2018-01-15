@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { pullScores } from '../actions/scoreboardActions'
+import { pullScores, pullGame } from '../actions/scoreboardActions'
 import Scores from '../components/Scores';
 
 class staticScoreboard extends Component {
@@ -11,13 +11,14 @@ class staticScoreboard extends Component {
   }
 
   handleOnClick = (e) => {
-
+    this.props.pullGame(e.target.id);
+    this.props.history.push('/game')
   }
 
   render() {
     return (
       <div>
-        <Scores scores={this.props.scores}/>
+        <Scores scores={this.props.scores} handleOnClick={this.handleOnClick}/>
       </div>
     );
   }
@@ -29,7 +30,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    pullScores: pullScores
+    pullScores: pullScores,
+    pullGame: pullGame
   }, dispatch);
 };
 
