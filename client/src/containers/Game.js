@@ -22,7 +22,6 @@ class staticGame extends Component {
   }
 
   componentDidUpdate(){
-    debugger;
     if(this.props.winner){
       this.props.saveGame(this.props.winner);
     }
