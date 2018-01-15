@@ -15,14 +15,17 @@ const checkWinner = function(gameState, row, column, player){
   //checking diagonals
   for(let i = 0; i < 4; i++){
     if(((row + i - 3) >= 0) && ((row + i) < maxLength)){
-      //left to right
-      if(gameState[row + i][column - i] === gameState[row + i - 1][column - i + 1] && gameState[row + i - 1][column - i + 1] === gameState[row + i - 2][column -i + 2] && gameState[row + i - 2][column - i + 2] === gameState[row + i - 3][column - i+ 3]){
-        console.log("diagonal win left to right row:" + row + " column: " + column + " i: " + i)
-        return true;
-      } else if(gameState[row + i][column + i] === gameState[row + i - 1][column + i - 1] && gameState[row + i - 1][column + i - 1] === gameState[row + i - 2][column + i - 2] && gameState[row + i - 2][column + i - 2] === gameState[row + i - 3][column + i - 3]){
-        //right to left
-        console.log("diagonal win right to left row:" + row + " column: " + column + " i: " + i)
-        return true;
+
+      for(let j = 0; j < 4; j++){
+        //left to right
+        if(gameState[row + i][column - i] === gameState[row + i - 1][column - i + 1] && gameState[row + i - 1][column - i + 1] === gameState[row + i - 2][column -i + 2] && gameState[row + i - 2][column - i + 2] === gameState[row + i - 3][column - i+ 3]){
+          console.log("diagonal win left to right row:" + row + " column: " + column + " i: " + i)
+          return true;
+        } else if(gameState[row + i][column + i] === gameState[row + i - 1][column + i - 1] && gameState[row + i - 1][column + i - 1] === gameState[row + i - 2][column + i - 2] && gameState[row + i - 2][column + i - 2] === gameState[row + i - 3][column + i - 3]){
+          //right to left
+          console.log("diagonal win right to left row:" + row + " column: " + column + " i: " + i)
+          return true;
+        }
       }
     }
   }
