@@ -38,15 +38,20 @@ const checkWinner = function(gameState, row, column, player){
   return false;
 }
 
+const isNonEmpty = function(cell) {
+  cell !== 0
+}
+
+
 const checkTie = function(gameState){
-  //check to see if the top row is filled
-  if(gameState[0].reduce((a, b) => a + b, 0) > 6){
+  if(gameState[0].every(isNonEmpty)){
     console.log("tie")
     return true
   } else {
     return false
   }
 }
+
 
 const updateTurn = function(turn){
   if(turn === 1){
