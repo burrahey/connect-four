@@ -2,23 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { pullScores } from '../actions/scoreboardActions'
+import Scores from '../components/Scores';
 
 class staticScoreboard extends Component {
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.pullScores();
   }
 
   render() {
+    debugger;
     return (
       <div>
-        Scores baby
+        <Scores scores={this.props.scores}/>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
+  debugger;
   return {scores: state.scores};
 }
 
