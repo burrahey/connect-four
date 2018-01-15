@@ -14,8 +14,11 @@ const checkWinner = function(gameState, row, column, player){
   for(let i = 0; i < 4; i++){
     //horizontals
     if(gameState[row][column + i - 3] + gameState[row][column + i - 2] + gameState[row][column + i - 1] + gameState[row][column + i - 0] === winSum){
-      debugger;
-      //winner winner chicken dinner
+      return true
+    } else if(row < 3){
+      if(gameState[row][column] + gameState[row+1][column] + gameState[row+2][column] + gameState[row+3][column] === winSum){
+        return true
+      }
     }
   }
   return false;
@@ -46,7 +49,7 @@ const gameReducer = function(state={player1: "Archana", player2: "Billu", gameSt
         if(newGameState[row][column] === -1){
           newGameState[row][column] = action.player;
           if(checkWinner(newGameState, row, column, action.player)){
-            //debugger - do winnery things
+            debugger;
           } else {
             newTurn = updateTurn(state.turn)
           }
