@@ -8,7 +8,6 @@ export const updateBoard = (column, player) => {
   return {type: "UPDATE_BOARD", column: column, player: player}
 }
 
-export const saveGame = (winner) => {
-
+export const saveGame = (gameOver) => {
   return {type: "SAVE_GAME"}
 }

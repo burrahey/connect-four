@@ -3,10 +3,10 @@ import React from 'react';
 const Players = (props) => {
   let phrase = "";
 
-  if(props.winner){
-    if(props.winner === 1){
+  if(props.gameOver){
+    if(props.gameOver === 1){
       phrase = `${props.player1} WON!!!!!!!`
-    } else if(props.winner === 2){
+    } else if(props.gameOver === 2){
       phrase = `${props.player2} WON!!!!!!!`
     } else {
       phrase = "IT'S A TIE"

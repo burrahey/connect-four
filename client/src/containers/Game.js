@@ -16,21 +16,21 @@ class staticGame extends Component {
   }
 
   handleOnClick = (event) => {
-    if(!this.props.winner){
+    if(!this.props.gameOver){
       this.props.updateBoard(event.target.id, this.props.turn)
     }
   }
 
   componentDidUpdate(){
-    if(this.props.winner){
-      this.props.saveGame(this.props.winner);
+    if(this.props.gameOver){
+      this.props.saveGame(this.props.gameOver);
     }
   }
 
   render() {
     return (
       <div>
-        <Players turn={this.props.turn} player1={this.props.player1} player2={this.props.player2} winner={this.props.winner} />
+        <Players turn={this.props.turn} player1={this.props.player1} player2={this.props.player2} gameOver={this.props.gameOver} />
         <Gameboard gameState={this.props.gameState} handleOnClick={this.handleOnClick}/>
       </div>
     );
