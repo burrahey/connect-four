@@ -1,6 +1,7 @@
 # README
 
-This is just Version 0. More to come soon!
+I swear, Connect Four is pretty cool mathematically:
+https://www.youtube.com/watch?v=yDWPi1pZ0Po
 
 ## Installation
 
