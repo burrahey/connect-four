@@ -1,10 +1,10 @@
 const defaultGame = [
-  [undefined,undefined,undefined,undefined,undefined,undefined,undefined],
-  [undefined,undefined,undefined,undefined,undefined,undefined,undefined],
-  [undefined,undefined,undefined,undefined,undefined,undefined,undefined],
-  [undefined,undefined,undefined,undefined,undefined,undefined,undefined],
-  [undefined,undefined,undefined,undefined,undefined,undefined,undefined],
-  [undefined,undefined,undefined,undefined,undefined,undefined,undefined]
+  [0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0]
 ];
 
 const maxRowLength = 7;
@@ -23,14 +23,15 @@ const checkWinner = function(gameState, row, column, player){
 
   //checking diagonals
   for(let i = 0; i < 4; i++){
-    if((row - i >= 0 )&& (row - i + 3 < maxLength)){
+    if(((row + i - 3) >= 0) && ((row + i) < maxLength)){
       //left to right
-      if(gameState[row - i][column] + gameState[row - i + 1][column + 1] + gameState[row - i + 2][column + 2] + gameState[row - i + 3][column + 3] === winSum){
-        console.log("diagonal win left to right" + row)
+      console.log("checking row:" + row + " column: " + column + " i: " + i)
+      if(gameState[row + i][column - i] === gameState[row + i - 1][column - i + 1] && gameState[row + i - 1][column - i + 1] === gameState[row + i - 2][column -i + 2] && gameState[row + i - 2][column - i + 2] === gameState[row + i - 3][column - i+ 3]){
+        console.log("diagonal win left to right row:" + row + " column: " + column + " i: " + i)
         return true;
-      } else if(gameState[row - i][column] + gameState[row - i + 1][column - 1] + gameState[row - i + 2][column - 2] + gameState[row - i + 3][column - 3] === winSum){
+      } else if(gameState[row + i][column + i] === gameState[row + i - 1][column + i - 1] && gameState[row + i - 1][column + i - 1] === gameState[row + i - 2][column + i - 2] && gameState[row + i - 2][column + i - 2] === gameState[row + i - 3][column + i - 3]){
         //right to left
-        console.log("diagonal win right to left" + row)
+        console.log("diagonal win right to left row:" + row + " column: " + column + " i: " + i)
         return true;
 
       }
@@ -39,7 +40,7 @@ const checkWinner = function(gameState, row, column, player){
 
   // checking vertical wins
   if(row < 3){
-   if(gameState[row][column] + gameState[row+1][column] + gameState[row+2][column] + gameState[row+3][column] === winSum){
+   if(gameState[row][column] === gameState[row+1][column] && gameState[row+1][column] === gameState[row+2][column] && gameState[row+2][column] === gameState[row+3][column]){
      console.log("win vertical: " + column)
      return true
    }
@@ -73,7 +74,7 @@ const updateTurnAndCheckBoard = function(state, action){
   let gameOverValue = false;
 
   for(let row = 5; row >= 0; row--){
-    if(newGameState[row][column] === undefined){
+    if(newGameState[row][column] === 0){
       newGameState[row][column] = action.player;
       if(checkWinner(newGameState, row, column, action.player)){
         gameOverValue = action.player;
