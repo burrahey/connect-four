@@ -4,11 +4,13 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(winner: params[:winner])
+    @game = Game.create(winner: params[:winner])
+    @rowState = RowState.create(state: params[:state], game_id: @game.id)
+
     if @game.save
       render( status: 200 )
     else
-      render( status: 500 )
+      render( status: 400 )
     end
   end
 end

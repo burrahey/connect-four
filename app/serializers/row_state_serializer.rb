@@ -1,3 +1,3 @@
 class RowStateSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :game_id, :state
 end
