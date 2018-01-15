@@ -8,6 +8,6 @@ export const updateBoard = (column, player) => {
   return {type: "UPDATE_BOARD", column: column, player: player}
 }
 
-export const saveGame = (gameOver) => {
+export const saveGame = (gameOver, gameState) => {
   return {type: "SAVE_GAME"}
 }

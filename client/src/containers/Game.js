@@ -23,7 +23,7 @@ class staticGame extends Component {
 
   componentDidUpdate(){
     if(this.props.gameOver){
-      this.props.saveGame(this.props.gameOver);
+      this.props.saveGame(this.props.gameOver, this.props.gameState);
     }
   }
 

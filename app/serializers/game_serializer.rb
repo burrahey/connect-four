@@ -1,3 +1,3 @@
 class GameSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :winner, :created_at
 end
