@@ -23,7 +23,17 @@ class staticGame extends Component {
 
   componentDidUpdate(){
     if(this.props.gameOver){
-      this.props.saveGame(this.props.gameOver, this.props.gameState);
+      let winner = "";
+
+      if(this.props.gameOver === 1){
+        winner = this.props.player1;
+      } else if(this.props.gameOver === 2){
+        winner = this.props.player2;
+      } else {
+        winner = `Tie Game with ${this.props.player1} and ${this.props.player2}`
+      }
+
+      this.props.saveGame(winner, this.props.gameState);
     }
   }
 

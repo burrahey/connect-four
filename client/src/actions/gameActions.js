@@ -8,7 +8,7 @@ export const updateBoard = (column, player) => {
   return {type: "UPDATE_BOARD", column: column, player: player}
 }
 
-export const saveGame = (gameOver, gameState) => {
+export const saveGame = (winner, gameState) => {
   debugger;
   fetch('/api/games', {
   method: "post",
@@ -17,7 +17,7 @@ export const saveGame = (gameOver, gameState) => {
     'Content-Type': 'application/json',
     'X-Requested-With': 'XMLHttpRequest'
   },
-  body: JSON.stringify({ winner: gameOver, state: gameState })
+  body: JSON.stringify({ winner: winner, state: gameState })
   })
   .then( (response) => {
   console.log(response)
