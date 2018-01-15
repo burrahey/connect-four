@@ -12,11 +12,14 @@ const maxRowLength = 7;
 const checkWinner = function(gameState, row, column, player){
   let winSum = player * 4
   for(let i = 0; i < 4; i++){
-    //horizontals
+    // checking horizontals
     if(gameState[row][column + i - 3] + gameState[row][column + i - 2] + gameState[row][column + i - 1] + gameState[row][column + i - 0] === winSum){
+      console.log("win horizontal row: " + row + "column" + column + i - 3)
       return true
     } else if(row < 3){
+      // checking vertical wins
       if(gameState[row][column] + gameState[row+1][column] + gameState[row+2][column] + gameState[row+3][column] === winSum){
+        console.log("win vertical: " + column)
         return true
       }
     }
@@ -25,7 +28,13 @@ const checkWinner = function(gameState, row, column, player){
 }
 
 const checkTie = function(gameState){
-  //check sum of first array - if > 6 then tie
+  //check to see if the top row is filled
+  if(gameState[0].reduce((a, b) => a + b, 0) > 6){
+    console.log("tie")
+    return true
+  } else {
+    return false
+  }
 }
 
 const updateTurn = function(turn){
@@ -48,7 +57,7 @@ const gameReducer = function(state={player1: "Archana", player2: "Billu", gameSt
       for(let row = 5; row > -1; row--){
         if(newGameState[row][column] === -1){
           newGameState[row][column] = action.player;
-          if(checkWinner(newGameState, row, column, action.player)){
+          if(checkWinner(newGameState, row, column, action.player) || checkTie(newGameState)){
             debugger;
           } else {
             newTurn = updateTurn(state.turn)
