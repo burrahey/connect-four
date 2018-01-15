@@ -9,23 +9,37 @@ const defaultGame = [
 
 const maxRowLength = 7;
 
+const checkWinner = function(){
+  return false;
+}
+
+const updateTurn = function(turn){
+  if(turn === 1){
+    return 2;
+  } else {
+    return 1;
+  }
+}
+
 const gameReducer = function(state={player1: "Archana", player2: "Billu", gameState: defaultGame, turn: 1, winner: false}, action){
   switch(action.type){
     case 'ADD_PLAYERS':
       return Object.assign({}, state, action.players);
     case 'UPDATE_BOARD':
       let newGameState = [...state.gameState];
-      let newTurn;
       let column = action.column;
+      let newTurn = state.turn
 
       for(let row = 5; row > -1; row--){
         if(newGameState[row][column] === -1){
           newGameState[row][column] = action.player;
-          if(state.turn === 1){
-            newTurn = 2;
+
+          if(checkWinner()){
+            //debugger - do winnery things
           } else {
-            newTurn = 1;
+            newTurn = updateTurn(state.turn)
           }
+
           break;
         }
       }
