@@ -11,7 +11,6 @@ class staticScoreboard extends Component {
   }
 
   render() {
-    debugger;
     return (
       <div>
         <Scores scores={this.props.scores}/>
@@ -21,8 +20,7 @@ class staticScoreboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  debugger;
-  return {scores: state.scores};
+  return {scores: state.scores.scores};
 }
 
 const mapDispatchToProps = (dispatch) => {

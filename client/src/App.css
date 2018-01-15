@@ -42,3 +42,7 @@ table {
 td {
     height: 40px;
 }
+
+#scores {
+  text-align: left;
+}
