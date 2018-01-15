@@ -9,7 +9,6 @@ export const updateBoard = (column, player) => {
 }
 
 export const saveGame = (winner, gameState, player1, player2) => {
-  debugger;
   if(winner === 1){
     winner = player1;
   } else if(winner === 2){
@@ -28,4 +27,12 @@ export const saveGame = (winner, gameState, player1, player2) => {
     body: JSON.stringify({ winner: winner, state: gameState, player1: player1, player2: player2 })
   })
   return {type: "SAVE_GAME"}
+}
+
+export const pullGame = (id) => {
+  return (dispatch) => {
+    return fetch(`/api/games/${id}`)
+      .then(response => response.json())
+      .then(game => dispatch({ type: 'LOAD_EXISTING_GAME', game: game }));
+  };
 }

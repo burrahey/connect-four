@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Players from '../components/Players'
 import {Gameboard} from '../components/Gameboard';
-import { updateBoard, saveGame } from '../actions/gameActions'
+import { updateBoard, saveGame, pullGame } from '../actions/gameActions'
 
 class staticGame extends Component {
 
@@ -45,7 +45,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     updateBoard: updateBoard,
-    saveGame: saveGame
+    saveGame: saveGame,
+    pullGame: pullGame
   }, dispatch);
 };
 

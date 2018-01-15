@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { pullScores, pullGame } from '../actions/scoreboardActions'
+import { pullScores } from '../actions/scoreboardActions'
+import { pullGame } from '../actions/gameActions'
 import Scores from '../components/Scores';
 
 class staticScoreboard extends Component {
