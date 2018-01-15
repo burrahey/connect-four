@@ -3,6 +3,9 @@
 I swear, Connect Four is pretty cool mathematically:
 https://www.youtube.com/watch?v=yDWPi1pZ0Po
 
+Here's a demo of the game:
+https://youtu.be/l0gtrrWDkz4
+
 ## Installation
 
 You can install this program in its current form by cloning it by entering ```git clone https://github.com/burrahey/connect-four.git``` into the console.
