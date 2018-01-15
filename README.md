@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is just Version 0. More to come soon!
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+You can install this program in its current form by cloning it by entering ```git clone https://github.com/burrahey/connect-four.git``` into the console.
 
-* System dependencies
+## Usage
 
-* Configuration
+1. After cloning the repo, navigate to the repo directory and run ```bundle install && cd client && npm install && cd ../```.
 
-* Database creation
+2. Run ```rake start``` in the terminal to start the server.
 
-* Database initialization
+3. Play a game!
 
-* How to run the test suite
+## Contributing
 
-* Services (job queues, cache servers, search engines, etc.)
+Bug reports and pull requests are welcome on GitHub at https://github.com/burrahey/scheduler.
 
-* Deployment instructions
+Contributions adding additional functionality are encouraged.
 
-* ...
+## License
+
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

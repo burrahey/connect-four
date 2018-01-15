@@ -55,6 +55,8 @@ td {
   height: 35px;
   width: 35px;
   background: white;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .circle-1 {
