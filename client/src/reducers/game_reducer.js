@@ -9,8 +9,20 @@ const defaultGame = [
 
 const maxRowLength = 7;
 
-const checkWinner = function(){
+const checkWinner = function(gameState, row, column, player){
+  let winSum = player * 4
+  for(let i = 0; i < 4; i++){
+    //horizontals
+    if(gameState[row][column + i - 3] + gameState[row][column + i - 2] + gameState[row][column + i - 1] + gameState[row][column + i - 0] === winSum){
+      debugger;
+      //winner winner chicken dinner
+    }
+  }
   return false;
+}
+
+const checkTie = function(gameState){
+  //check sum of first array - if > 6 then tie
 }
 
 const updateTurn = function(turn){
@@ -27,14 +39,13 @@ const gameReducer = function(state={player1: "Archana", player2: "Billu", gameSt
       return Object.assign({}, state, action.players);
     case 'UPDATE_BOARD':
       let newGameState = [...state.gameState];
-      let column = action.column;
+      let column = +action.column;
       let newTurn = state.turn
 
       for(let row = 5; row > -1; row--){
         if(newGameState[row][column] === -1){
           newGameState[row][column] = action.player;
-
-          if(checkWinner()){
+          if(checkWinner(newGameState, row, column, action.player)){
             //debugger - do winnery things
           } else {
             newTurn = updateTurn(state.turn)
