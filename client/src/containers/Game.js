@@ -11,7 +11,7 @@ class staticGame extends Component {
     super();
 
     this.state={
-      player1:"", player2:"", gameState:[], turn: 1
+      player1:"", player2:"", gameState:[], turn: 1, saved: false
     }
   }
 
@@ -22,7 +22,7 @@ class staticGame extends Component {
   }
 
   componentDidUpdate(){
-    if(this.props.gameOver){
+    if(!this.props.saved && this.props.gameOver){
       let winner = "";
       this.props.saveGame(this.props.gameOver, this.props.gameState, this.props.player1, this.props.player2);
     }

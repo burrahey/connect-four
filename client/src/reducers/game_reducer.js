@@ -10,7 +10,7 @@ const defaultGame = [
   [0,0,0,0,0,0,0]
 ];
 
-const gameReducer = function(state={player1: "Player 1", player2: "Player 2", gameState: defaultGame, turn: 1, gameOver: false}, action){
+const gameReducer = function(state={player1: "Player 1", player2: "Player 2", gameState: defaultGame, turn: 1, gameOver: false, saved: false}, action){
   switch(action.type){
     case 'ADD_PLAYERS':
       return Object.assign({}, state, action.players);
@@ -27,7 +27,7 @@ const gameReducer = function(state={player1: "Player 1", player2: "Player 2", ga
         winner = 2;
       }
 
-      return {player1: action.game.player1, player2: action.game.player2, gameState: action.game.state, gameOver: winner};
+      return {player1: action.game.player1, player2: action.game.player2, gameState: action.game.state, gameOver: winner, saved: action.game.id};
     default:
       return state;
   }
